@@ -1,0 +1,11 @@
+.page-home {
+    position: relative;
+    overflow: hidden;
+    & .banner-box {
+      max-width: 1000px;
+      /* margin-top: -40px; */
+      margin: auto;
+      overflow: hidden;
+    }
+  }
+  
