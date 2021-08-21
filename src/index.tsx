@@ -12,7 +12,7 @@ import "./index.css";
 import ReactDom from "react-dom";
 // import App from "./pages/App";
 
-ReactDom.render(<span>111111</span>, document.querySelector("#app"));
+ReactDom.render(<span>hello world</span>, document.querySelector("#app"));
 
 
 
