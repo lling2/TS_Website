@@ -16,16 +16,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 获取命令行的参数
 const argv = require('yargs-parser')(process.argv.slice(2));
 const _mode = argv.mode || 'development';
+const _flagmode = _mode === 'production';
+// 其他环境的模版
+const _mergeConfig = require(`./config/webpack.${_mode}.js`);
+// 打包css
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const cssLoader = [
-    // css-loader提取 打包 以后放在静态资源服务器
-    {
-
-    },
+let cssLoaders = [
+    // css-loader提取 打包 以后放在静态资源服务器(解析css 从下到上，通过link的方式注入)
+    MiniCssExtractPlugin.loader,
     {
         loader: 'css-loader',
         options: {
-            importLoaders: 1 // 解析@import('')
+            importLoaders: 1 // 解析@import('')，指定第xx执行
         }
     },
     {
@@ -35,45 +38,33 @@ const cssLoader = [
 
 // 公共配置
 const webpackBaseConfig = {
-    // 入口
     entry: {
         app: resolve('src/index.tsx')
     },
     output: {
-        path: join(__dirname, './dist'),
+        path: join(__dirname, './dist/assets'),
         filename: "scripts/[name].bundle.js"
     },
     module: {
         rules: [{
-            test: /\.tsx$/,
-            exclude:/(node_modules|bower_components)/,
-            use: {
-                loader: 'swc-loader'
-            }
+            test: /\.(js|jsx|ts|tsx)/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'swc-loader'
         }, {
             test: /\.(css|scss)$/,
-            loader: cssLoader
-        }]
-    }
-}
-module.exports = {
-    entry: {
-        app: resolve('src/index.tsx')
-    },
-    output: {
-        path: join(__dirname, './dist'),
-        filename: "scripts/[name].bundle.js"
-    },
-    module: {
-        rules: [{
-            test: /\.tsx$/,
-            exclude:/(node_modules|bower_components)/,
-            use: {
-                loader: 'swc-loader'
-            }
+            use: cssLoaders
+        }, {
+            // webp新图片格式，加载比png快
+            test: /\.(png|jpg|gif|eot|woff|woff2|ttf|svg|otf|webp)/,
+            type: 'asset'
         }]
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new MiniCssExtractPlugin({
+            filename: _flagmode ? "styles/[name].[contenthash:5].css" : "styles/[name].css",
+            chunkFilename: _flagmode ? "styles/[id].[contenthash:5].css" : "styles/[id].css",
+            ignoreOrder: true
+        })
     ]
 }
+module.exports = merge.default(webpackBaseConfig, _mergeConfig)

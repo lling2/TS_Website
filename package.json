@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development"
+    "client:dev": "scripty",
+    "client:server": "scripty",
+    "client:prod": "scripty"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,9 @@
     "@swc/core": "^1.2.80",
     "@types/react-router-dom": "^5.1.8",
     "css-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.2.0",
     "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
     "swc-loader": "^0.1.14",
     "webpack-merge": "^5.8.0",
     "yargs-parser": "^20.2.9"
