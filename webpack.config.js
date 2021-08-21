@@ -11,8 +11,6 @@ const {
     join
 } = require('path');
 const merge = require('webpack-merge');
-// 页面模板处理
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 获取命令行的参数
 const argv = require('yargs-parser')(process.argv.slice(2));
 const _mode = argv.mode || 'development';
