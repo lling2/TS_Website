@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: "development",
   output: {
-    publicPath: "/",
+    publicPath: "/", // 静态资源访问路径
     assetModuleFilename: "images/[name][ext]",
     filename: "scripts/[name].bundle.js"
   },

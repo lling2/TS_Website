@@ -59,6 +59,20 @@ const webpackBaseConfig = {
             type: 'asset'
         }]
     },
+    resolve: {
+        alias: {
+            "@assets": resolve("src/assets"),
+            "@components": resolve("src/components"),
+            "@models": resolve("src/models"),
+            "@routes": resolve("src/routes"),
+            "@pages": resolve("src/pages"),
+            "@utils": resolve("src/utils"),
+            "@recoil": resolve("src/recoil"),
+            "@hooks": resolve("src/hooks"),
+            "@api": resolve("src/api"),
+        },
+        extensions: [".js", ".ts", ".tsx", '.jsx']
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: _flagmode ? "styles/[name].[contenthash:5].css" : "styles/[name].css",
