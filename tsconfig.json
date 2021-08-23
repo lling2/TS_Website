@@ -27,7 +27,8 @@
         "@recoil/*": ["recoil/*"],
         "@hooks/*": ["hooks/*"],
         "@services/*": ["services/*"],
-        "@api/*": ["api/*"]
+        "@api/*": ["api/*"],
+        "@layouts/*": ["layouts/*"],
       }
     },
     "include": ["src", "tests"],

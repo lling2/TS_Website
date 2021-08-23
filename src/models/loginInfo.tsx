@@ -5,9 +5,9 @@ export interface LoginInfo {
   userName: string;
 }
 
-export const initLogin = (): LoginInfo => ({
+export const initLogin = ():LoginInfo => ({
   uuid: 19961202,
   imgUrl: '',
   userToken: '',
-  userName: 'admin',
+  userName: 'admin'
 })

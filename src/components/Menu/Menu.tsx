@@ -1,8 +1,15 @@
-import React, { FC, useEffect, useCallback, Fragment } from "react";
+import 
+  React, {
+    FC, 
+    useEffect,
+    useCallback,
+    Fragment
+  } from "react";
 import {
   NavLink, // 跳转
   useLocation,
-  useHistory 
+  useHistory,
+  Router
 } from "react-router-dom";
 import "./Menu.css";
 import {
@@ -84,7 +91,7 @@ const Banner: FC<{}> = () => {
           <nav className="nav-list">
             {
               constants && constants.Menus && constants.Menus.map((item, key) => (
-                <NavLink
+                <Router
                   className="nav-item"
                   activeClassName="nav-item_act"
                   to={item.to}
@@ -92,45 +99,9 @@ const Banner: FC<{}> = () => {
                 >
                   {/* 💎&nbsp;&nbsp;Import */}
                   {item.name}
-                </NavLink>
+                </Router>
               ))
             }
-            {/* <NavLink
-              className="nav-item"
-              exact
-              activeClassName="nav-item_act"
-              to="/"
-            >
-              🏠&nbsp;&nbsp;Home
-            </NavLink>
-            <NavLink
-              className="nav-item"
-              activeClassName="nav-item_act"
-              to="/ques"
-            >
-              💎&nbsp;&nbsp;Import
-            </NavLink>
-            <NavLink
-              className="nav-item"
-              activeClassName="nav-item_act"
-              to="/interview"
-            >
-              ✍🏻&nbsp;&nbsp;Normalize
-            </NavLink>
-            <NavLink
-              className="nav-item"
-              activeClassName="nav-item_act"
-              to="/pratice"
-            >
-              📚&nbsp;&nbsp;Publish
-            </NavLink>
-            <NavLink
-              className="nav-item"
-              activeClassName="nav-item_act"
-              to="/job"
-            >
-              🎯 &nbsp;&nbsp;Logs
-            </NavLink> */}
           </nav>
           {/* 右边的登录状态判断 */}
           {loginInfo.userName ? (

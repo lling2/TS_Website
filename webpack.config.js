@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-19 23:29:54
- * @LastEditTime: 2021-08-20 09:26:05
+ * @LastEditTime: 2021-08-23 16:06:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/webpack.config.ts
@@ -68,6 +68,7 @@ const webpackBaseConfig = {
             "@recoil": resolve("src/recoil"),
             "@hooks": resolve("src/hooks"),
             "@api": resolve("src/api"),
+            "@layouts": resolve("src/layouts"),
         },
         extensions: [".js", ".ts", ".tsx", '.jsx']
     },
