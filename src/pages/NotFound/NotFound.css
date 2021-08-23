@@ -1,0 +1,5 @@
+.mod_404 {
+  & a {
+    color: var(--fontColor) !important;
+  }
+}

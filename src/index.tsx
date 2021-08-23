@@ -10,9 +10,9 @@ import React from "react";
 import "./index.css";
 // import "./assets/css/normalize.min.css";
 import ReactDom from "react-dom";
-// import App from "./pages/App";
+import App from "./pages/App";
 
-ReactDom.render(<span>hello world</span>, document.querySelector("#app"));
+ReactDom.render(<App/>, document.querySelector("#app"));
 
 
 

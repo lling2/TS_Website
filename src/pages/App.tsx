@@ -1,15 +1,16 @@
-/*
- * @Author: your name
- * @Date: 2021-08-19 23:22:00
- * @LastEditTime: 2021-08-20 00:31:50
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/pages/App.tsx
- */
-import React, {FC} from "react";
-const App:FC<{}> = () => {
+import React, { FC } from "react";
+import Routes from '@routes/index';
+import { BrowserRouter as Router } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+
+const App: FC<{}> = () => {
   return (
-    <div>111</div>
+    <RecoilRoot>
+      <Router>
+        <Routes />
+      </Router>
+    </RecoilRoot>
   );
 };
+
 export default App;
