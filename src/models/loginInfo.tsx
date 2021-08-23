@@ -1,9 +1,13 @@
 export interface LoginInfo {
   uuid: number;
-  imgUrl: string;
+  imgUrl?: string;
+  userToken: string;
+  userName: string;
 }
 
 export const initLogin = (): LoginInfo => ({
-  uuid: 1,
-  imgUrl: '/'
+  uuid: 19961202,
+  imgUrl: '',
+  userToken: '',
+  userName: 'admin',
 })

@@ -9,23 +9,24 @@ import {
   useRecoilState
 } from "recoil";
 import {
-  loginSel
+  loginSelect
 } from "@recoil/selectors/loginSelectors";
 import {
   user
 } from "@api/index";
 import {
-  storage
+  storage,
+  constants
 } from "@utils/index";
 
 const Banner: FC<{}> = () => {
-  const [loginInfo, setLoginInfo] = useRecoilState(loginSel);
+  const [loginInfo, setLoginInfo] = useRecoilState(loginSelect);
   const history = useHistory();
   const location = useLocation();
 
   // 相当于 class didmount
   useEffect(() => {
-    if (!loginInfo.headimgurl && location.pathname !== "/") {
+    if (!loginInfo.userName && location.pathname !== "/") {
       history.push({
         pathname: "/login",
         state: {
@@ -42,16 +43,15 @@ const Banner: FC<{}> = () => {
   /* 
    useCallback 缓存函数，不会每次生成新的函数
    useMemo  缓存值
-   React.memo // 实现浅比较=》shouldComponentUpdate/React.pureComponent
+   React.memo // 实现浅比较 =》shouldComponentUpdate/React.pureComponent
   */
-
   const handleLoginOut = useCallback(() => {
     // 清空掉数据
     setLoginInfo({
-      headimgurl: "",
-      nickname: "",
-      uid: 0,
       uuid: 0,
+      imgUrl: '',
+      userToken: '',
+      userName: 'admin'
     });
 
     // 本地存储删除
@@ -59,7 +59,6 @@ const Banner: FC<{}> = () => {
     user
       .loginOut()
       .then((res) => {
-        // window.location.reload();
         history.push({
           pathname: "/",
           state: {
@@ -83,7 +82,20 @@ const Banner: FC<{}> = () => {
             alt=""
           />
           <nav className="nav-list">
-            <NavLink
+            {
+              constants && constants.Menus && constants.Menus.map((item, key) => (
+                <NavLink
+                  className="nav-item"
+                  activeClassName="nav-item_act"
+                  to={item.to}
+                  key={key}
+                >
+                  {/* 💎&nbsp;&nbsp;Import */}
+                  {item.name}
+                </NavLink>
+              ))
+            }
+            {/* <NavLink
               className="nav-item"
               exact
               activeClassName="nav-item_act"
@@ -118,12 +130,12 @@ const Banner: FC<{}> = () => {
               to="/job"
             >
               🎯 &nbsp;&nbsp;Logs
-            </NavLink>
+            </NavLink> */}
           </nav>
           {/* 右边的登录状态判断 */}
-          {loginInfo.headimgurl ? (
+          {loginInfo.userName ? (
             <div className="user">
-              <img className="user-avatar" src={loginInfo.headimgurl} alt="" />
+              <img className="user-avatar" src={loginInfo.imgUrl} alt="" />
               <div onClick={handleLoginOut} className="login-out">
                 退出登录
               </div>
