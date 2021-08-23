@@ -1,25 +1,43 @@
 /*
  * @Author: your name
  * @Date: 2021-08-23 14:59:28
- * @LastEditTime: 2021-08-23 16:33:19
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-23 18:31:01
+ * @LastEditors: your name
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/layouts/index.tsx
  */
 import React, {
-    ReactNode,
-    useState
+  ReactNode,
+  useState
 } from 'react';
+import { styled } from '@material-ui/core/styles';
 import {
-    Container,
-    Box
+  Box
 } from '@material-ui/core';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import Settings from '../components/settings/index'
 
 type DocsLayoutProps = {
   children: ReactNode;
 };
+
+const APP_BAR_MOBILE = 64;
+const APP_BAR_DESKTOP = 92;
+
+const MainStyle = styled('div')(({ theme }) => ({
+  flexGrow: 1,
+  overflow: 'auto',
+  minHeight: '100%',
+  paddingTop: APP_BAR_MOBILE + 24,
+  paddingBottom: theme.spacing(10),
+  // backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up('md')]: {
+    paddingTop: APP_BAR_DESKTOP + 24,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
+  }
+}));
 export default function Layout({ children }: DocsLayoutProps) {
   const [open, setOpen] = useState(false);
 
@@ -32,19 +50,10 @@ export default function Layout({ children }: DocsLayoutProps) {
         onCloseSidebar={() => setOpen(false)}
         isOpenSidebar={open}
       />
-
-      <Container
-        maxWidth="md"
-        // sx={{
-        //   my: 15,
-        //   flexGrow: 1,
-        //   overflow: 'auto',
-        //   minHeight: '100%'
-        // }}
-      >
+      <MainStyle>
+        <Settings />
         {children}
-        1111
-      </Container>
+      </MainStyle>
     </Box>
   );
 }

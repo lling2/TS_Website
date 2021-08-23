@@ -6,16 +6,13 @@ import Layout from '@layouts/index'
 
 const App: FC<{}> = () => {
   return (
-    // <RecoilRoot>
-      <Layout>
-        22222
-      </Layout>
-      /* <Router>
+    <RecoilRoot>
+      <Router basename='/'>
         <Layout>
           <Routes />
         </Layout>
-      </Router> */
-    // </RecoilRoot>
+      </Router>
+    </RecoilRoot>
   );
 };
 
