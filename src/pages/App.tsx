@@ -3,14 +3,16 @@ import Routes from '@routes/index';
 import { BrowserRouter as Router } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Layout from '@layouts/index'
+import Import from '@pages/Import'
 
 const App: FC<{}> = () => {
   return (
     <RecoilRoot>
       <Router basename='/'>
-        <Layout>
+        {/* <Layout>
           <Routes />
-        </Layout>
+        </Layout> */}
+        <Import/>
       </Router>
     </RecoilRoot>
   );
