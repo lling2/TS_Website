@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-08-23 14:59:28
- * @LastEditTime: 2021-08-24 18:28:56
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/layouts/index.tsx
- */
 import React, {
   ReactNode,
   useState
@@ -47,8 +39,8 @@ export default function Layout({ children }: DocsLayoutProps) {
         onOpenSidebar={() => setOpen(true)}
       />
       <Sidebar
-        onCloseSidebar={() => setOpen(false)}
         isOpenSidebar={open}
+        onCloseSidebar={() => setOpen(false)}
       />
       <MainStyle>
         <Settings />

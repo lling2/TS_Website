@@ -6,7 +6,7 @@ import
     Fragment
   } from "react";
 import {
-  NavLink, // 跳转
+  NavLink,
   useLocation,
   useHistory,
   Router
@@ -22,11 +22,11 @@ import {
   user
 } from "@api/index";
 import {
-  storage,
+  localStorage,
   constants
 } from "@utils/index";
 
-const Banner: FC<{}> = () => {
+const Menu: FC<{}> = () => {
   const [loginInfo, setLoginInfo] = useRecoilState(loginSelect);
   const history = useHistory();
   const location = useLocation();
@@ -62,7 +62,8 @@ const Banner: FC<{}> = () => {
     });
 
     // 本地存储删除
-    storage.remove("userInfo");
+    localStorage.storage.remove("userInfo");
+
     user
       .loginOut()
       .then((res) => {
@@ -91,31 +92,31 @@ const Banner: FC<{}> = () => {
           <nav className="nav-list">
             {
               constants && constants.Menus && constants.Menus.map((item, key) => (
-                <Router
-                  // className="nav-item"
+                <NavLink
+                  className="nav-item"
                   activeClassName="nav-item_act"
                   to={item.to}
                   key={key}
                 >
                   {/* 💎&nbsp;&nbsp;Import */}
                   {item.name}
-                </Router>
+                </NavLink>
               ))
             }
           </nav>
           {/* 右边的登录状态判断 */}
-          {loginInfo.userName ? (
+          {/* {loginInfo.userName ? (
             <div className="user">
               <img className="user-avatar" src={loginInfo.imgUrl} alt="" />
               <div onClick={handleLoginOut} className="login-out">
                 退出登录
               </div>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       </header>
     </Fragment>
   );
 };
 
-export default React.memo(Banner);
+export default React.memo(Menu);

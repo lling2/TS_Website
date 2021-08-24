@@ -6,7 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/layouts/a.tsx
  */
-import React from 'react';
+import React, {ReactNode} from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -22,9 +22,9 @@ import typography from '../theme/typography';
 
 const ListItemStyle = styled(ListItem)(({ theme }) => ({
   ...typography.body2,
-  height: 44,
+  height: 30,
   textTransform: 'capitalize',
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(1, 4, 1, 6),
   color: theme.palette.text.secondary,
   borderRadius: theme.shape.borderRadius,
   '&.isActive': {
@@ -37,24 +37,32 @@ const ListItemStyle = styled(ListItem)(({ theme }) => ({
   }
 }));
 
-type TLink = {
-  href: string;
-  title: string;
-  info?: JSX.Element;
-};
-
 type NavItemProps = {
-  link: TLink;
-  children?: React.ReactNode
+  level: number;
+  title: string;
+  href?: string;
+  info?: ReactNode;
+  icon?: ReactNode;
+  open?: boolean;
+  children?: ReactNode;
+  className?: string;
 };
 
-export default function SidebarItem({ link }: NavItemProps) {
-  const { href, title, info } = link;
+export default function SidebarItem({ 
+  level,
+  title,
+  href,
+  info,
+  icon,
+  open = false,
+  children,
+  className
+ }: NavItemProps) {
 
   return (
     <ListItemStyle
       // @ts-ignore
-      exact
+      exact="true"
       button
       to={href}
       disableGutters

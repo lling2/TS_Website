@@ -1,20 +1,9 @@
-/*
- * @Author: your name
- * @Date: 2021-08-23 15:00:40
- * @LastEditTime: 2021-08-24 19:05:34
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/layouts/Navbar.tsx
- */
-
 import React from 'react';
-import { Icon } from '@iconify/react';
-// import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';;
 import menu2Fill from '@iconify/icons-eva/menu-2-fill';
-import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-import { 
+import {
   alpha,
-  styled 
+  styled
 } from '@material-ui/core/styles';
 import {
   Box,
@@ -24,21 +13,17 @@ import {
   Toolbar,
   IconButton
 } from '@material-ui/core';
-// components
 import Logo from '../components/Logo';
-// routes
-// import { PATH_DASHBOARD } from '..//routes/paths';
 
 const APPBAR_HEIGHT = 64;
-
 const RootStyle = styled(AppBar)(({ theme }) => ({
-  zIndex: 2,
+  zIndex: 1,
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   // boxShadow: theme.customShadows.z8,
   color: theme.palette.text.primary,
   backgroundColor: alpha(theme.palette.background.default, 0.72),
-  [theme.breakpoints.up('md')]: { zIndex: 1999 }
+  [theme.breakpoints.up('md')]: { zIndex: 1300 }
 }));
 
 type DocsNavbarProps = {
@@ -59,19 +44,16 @@ export default function Navbar({ onOpenSidebar }: DocsNavbarProps) {
         </Hidden>
 
         <Hidden mdDown>
-          {/* <RouterLink to="/"> */}
-            <Logo />
-          {/* </RouterLink> */}
+          <Logo />
         </Hidden>
 
         <Box sx={{ flexGrow: 1 }} />
-
         <Button
-          // disableRipple
-          // to='/'
-          // // to={PATH_DASHBOARD.root}
-          // // component={<Button/>}
-          // endIcon={<Icon icon={arrowIosForwardFill} />}
+        // disableRipple
+        // to='/'
+        // // to={PATH_DASHBOARD.root}
+        // // component={<Button/>}
+        // endIcon={<Icon icon={arrowIosForwardFill} />}
         >
           Dashboard
         </Button>

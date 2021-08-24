@@ -1,43 +1,48 @@
 type Storage = {
-    get: <T>(key: string) => T | null,
-    remove: (key: string) => boolean,
-    set: <T>(key: string, val:T) => boolean,
-    clear: () => boolean,
-}
-
+  set: <T>(key: string, val: T) => boolean;
+  get: <T>(key: string) => T | null;
+  remove: (key: string) => boolean;
+  clear: () => boolean;
+};
+/**
+ * 本地存储
+ * */
 export const storage: Storage = {
-  get: (key)  => {
-    if(!key || !localStorage) return null;
+  set: (key, val) => {
+    if (!key || !localStorage) return false;
+    try {
+      localStorage.setItem(key, JSON.stringify(val));
+      return true;
+    } catch (error) {
+      return false;
+      // throw `LocalStorage's setItem error: ${JSON.stringify(error)}!`;
+    }
+  },
+  get: (key) => {
+    if (!key || !localStorage) return null;
     let val;
     try {
       val = JSON.parse(localStorage.getItem(key));
-    }catch(error) {
+      // val = val === null ? null : JSON.parse(val);
+    } catch (error) {
       val = null;
-      throw error;
-    };
+      // throw `LocalStorage's getItem error: ${JSON.stringify(error)}!`;
+    }
     return val;
   },
   remove: (key) => {
-    if(!key || !localStorage) return false;
+    if (!key || !localStorage) return false;
     localStorage.removeItem(key);
     return true;
   },
-  set: (key, val) => {
-    if(!key || !localStorage) return false;
-    try {
-        localStorage.setItem(key, JSON.stringify(val))
-        return true
-    }catch(error) {
-        return false;
-    }
-  },
   clear: () => {
     if (!localStorage) return false;
-    try{
-        localStorage.clear();
-        return true;
-    }catch(error) {
-        return false;
+    try {
+      localStorage.clear();
+      return true;
+    } catch (error) {
+      return false;
+      // console.error(error);
     }
-  }
-}
+  },
+};

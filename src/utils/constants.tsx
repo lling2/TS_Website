@@ -6,21 +6,19 @@
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/utils/constants.tsx
  */
-export default {
-  Menus: [{
-    name: 'Home',
-    to: '/',
-  }, {
-    name: 'Import',
-    to: '/import',
-  }, {
-    name: 'Normalize',
-    to: '/normalize',
-  }, {
-    name: 'Publish',
-    to: '/publish',
-  }, {
-    name: 'Publish',
-    to: '/publish',
-  }]
-}
+export const Menus = [{
+  name: 'Home',
+  to: '/',
+}, {
+  name: 'Import',
+  to: '/import',
+}, {
+  name: 'Normalize',
+  to: '/normalize',
+}, {
+  name: 'Publish',
+  to: '/publish',
+}, {
+  name: 'Publish',
+  to: '/publish',
+}]

@@ -10,12 +10,12 @@ import React from 'react';
 import SimpleBarReact, { Props } from 'simplebar-react';
 // material
 import {
-    alpha,
-    styled
+  alpha,
+  styled
 } from '@material-ui/core/styles';
 import {
-    Box,
-    BoxProps
+  Box,
+  BoxProps
 } from '@material-ui/core';
 
 const RootStyle = styled('div')(({ theme }) => ({

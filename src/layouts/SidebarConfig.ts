@@ -1,27 +1,58 @@
-/*
- * @Author: your name
- * @Date: 2021-08-23 15:57:32
- * @LastEditTime: 2021-08-24 19:12:24
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/layouts/SidebarConfig.ts
- */
-// routes
-// import { PATH_DOCS } from '../../routes/paths';
-// components
-// import Label from '../../components/Label';
-const version = 'v2.0.0';
-
 const sidebarConfig = [
   {
-    subheader: 'User Admin',
+    subheader: '导入',
     items: [
-      { title: 'Import', href: ''},
-      { title: 'Normalize', href:'' },
-      { title: 'Publish', href: '' },
-      { title: 'Logs', href: '' }
+      {
+        title: '列表',
+        href: '',
+        icon: ''
+      }
     ]
-  }
+  },
+  {
+    subheader: '分析',
+    items: [
+      {
+        title: '列表',
+        href: '',
+        icon: '',
+        items: [
+          {
+            title: 'page Four',
+            href: '',
+          },
+          {
+            title: 'Page Five',
+            href: '',
+          },
+          {
+            title: 'Page Six',
+            href: '',
+          }
+        ]
+      }
+    ]
+  },
+  {
+    subheader: '发布',
+    items: [
+      {
+        title: '列表',
+        href: '',
+        icon: ''
+      }
+    ]
+  },
+  {
+    subheader: '日志',
+    items: [
+      {
+        title: '列表',
+        href: '',
+        icon: ''
+      }
+    ]
+  },
 ];
 
 export default sidebarConfig;
