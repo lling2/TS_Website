@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-23 15:00:40
+ * @LastEditTime: 2021-08-24 19:05:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /webpack_demo/apps/project/src/layouts/Navbar.tsx
+ */
 
 import React from 'react';
 import { Icon } from '@iconify/react';
@@ -24,7 +32,7 @@ import Logo from '../components/Logo';
 const APPBAR_HEIGHT = 64;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
-  zIndex: 999,
+  zIndex: 2,
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   // boxShadow: theme.customShadows.z8,
@@ -59,11 +67,11 @@ export default function Navbar({ onOpenSidebar }: DocsNavbarProps) {
         <Box sx={{ flexGrow: 1 }} />
 
         <Button
-          disableRipple
-          to='/'
-          // to={PATH_DASHBOARD.root}
-          // component={<Button/>}
-          endIcon={<Icon icon={arrowIosForwardFill} />}
+          // disableRipple
+          // to='/'
+          // // to={PATH_DASHBOARD.root}
+          // // component={<Button/>}
+          // endIcon={<Icon icon={arrowIosForwardFill} />}
         >
           Dashboard
         </Button>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-23 15:09:08
- * @LastEditTime: 2021-08-23 16:32:49
+ * @LastEditTime: 2021-08-24 19:12:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/layouts/a.tsx
@@ -20,8 +20,6 @@ import {
 // theme
 import typography from '../theme/typography';
 
-// ----------------------------------------------------------------------
-
 const ListItemStyle = styled(ListItem)(({ theme }) => ({
   ...typography.body2,
   height: 44,
@@ -39,8 +37,6 @@ const ListItemStyle = styled(ListItem)(({ theme }) => ({
   }
 }));
 
-// ----------------------------------------------------------------------
-
 type TLink = {
   href: string;
   title: string;
@@ -49,6 +45,7 @@ type TLink = {
 
 type NavItemProps = {
   link: TLink;
+  children?: React.ReactNode
 };
 
 export default function SidebarItem({ link }: NavItemProps) {
@@ -64,7 +61,9 @@ export default function SidebarItem({ link }: NavItemProps) {
       // component={RouterLink}
       activeClassName="isActive"
     >
-      <ListItemText disableTypography>{title} </ListItemText>
+      <ListItemText disableTypography>
+        {title}
+      </ListItemText>
       {info && info}
     </ListItemStyle>
   );

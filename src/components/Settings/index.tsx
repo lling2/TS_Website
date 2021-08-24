@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-08-23 18:22:16
- * @LastEditTime: 2021-08-23 18:25:02
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/components/Settings/index.tsx
- */
 import { Icon } from '@iconify/react';
 import React, { useState } from 'react';
 import closeFill from '@iconify/icons-eva/close-fill';
@@ -40,11 +32,15 @@ export default function Settings() {
   return (
     <>
       <Box
+        style={{
+          marginTop: '64px'
+        }}
         sx={{
           position: 'fixed',
+          marginTop: '64px',
           bottom: { xs: 16, sm: 24, md: 32 },
           right: { xs: 16, sm: 24, md: 32 },
-          zIndex: 999,
+          zIndex: 999999,
         }}
       >
         <Tooltip title="Settings">
@@ -78,6 +74,9 @@ export default function Settings() {
         // PaperProps={{
         //   // sx: { width: DRAWER_WIDTH }
         // }}
+        // style={{
+        //   marginTop: '64px'
+        // }}
       >
         <Box
           sx={{
@@ -88,7 +87,7 @@ export default function Settings() {
             alignItems: 'center',
             justifyContent: 'space-between'
           }}
-          style={{width: '400px', marginTop: '20px'}}
+          style={{width: '400px', marginTop: '64px'}}
         >
           <Typography variant="subtitle1">
             Settings

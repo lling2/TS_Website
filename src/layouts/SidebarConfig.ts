@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2021-08-23 15:57:32
- * @LastEditTime: 2021-08-23 16:44:07
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-24 19:12:24
+ * @LastEditors: your name
  * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/layouts/SidebarConfig.tsx
+ * @FilePath: /webpack_demo/apps/project/src/layouts/SidebarConfig.ts
  */
 // routes
 // import { PATH_DOCS } from '../../routes/paths';
