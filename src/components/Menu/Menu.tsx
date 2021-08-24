@@ -92,7 +92,7 @@ const Banner: FC<{}> = () => {
             {
               constants && constants.Menus && constants.Menus.map((item, key) => (
                 <Router
-                  className="nav-item"
+                  // className="nav-item"
                   activeClassName="nav-item_act"
                   to={item.to}
                   key={key}
