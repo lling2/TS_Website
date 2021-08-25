@@ -1,0 +1,60 @@
+{
+    "code":200,
+    "data":[
+        {
+            "content":"Bunker Start",
+            "actionType":"START",
+            "actionTime":1628750706
+        },
+        {
+            "content":"Create Account",
+            "actionType":"USER_ACTION",
+            "actionTime":1628750796
+        },
+        {
+            "content":"Login to bunker",
+            "actionType":"USER_ACTION",
+            "actionTime":1628750799
+        },
+        {
+            "content":"Authorized to login Platform",
+            "actionType":"USER_ACTION",
+            "actionTime":1628750804
+        },
+        {
+            "content":"Create Dataset, id 3",
+            "actionType":"USER_ACTION",
+            "actionTime":1628750891
+        },
+        {
+            "content":"Upload csv file",
+            "actionType":"UPLOAD",
+            "actionTime":1628751019
+        },
+        {
+            "content":"Import Data",
+            "actionType":"IMPORT",
+            "actionTime":1628751024
+        },
+        {
+            "content":"Bind Category",
+            "actionType":"USER_ACTION",
+            "actionTime":1628751094
+        },
+        {
+            "content":"Publish Dataset, dataset id 3, datatable id 1",
+            "actionType":"USER_ACTION",
+            "actionTime":1628751111
+        },
+        {
+            "content":"Login to bunker",
+            "actionType":"USER_ACTION",
+            "actionTime":1629869330
+        },
+        {
+            "content":"Login to bunker",
+            "actionType":"USER_ACTION",
+            "actionTime":1629870298
+        }
+    ]
+}

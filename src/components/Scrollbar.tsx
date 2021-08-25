@@ -1,7 +1,7 @@
 /*
  * @Author: your name
- * @Date: 2021-08-23 15:07:17
- * @LastEditTime: 2021-08-23 16:21:41
+ * @Date: 2021-08-25 11:22:45
+ * @LastEditTime: 2021-08-25 14:24:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/components/Scrollbar.tsx
@@ -9,14 +9,8 @@
 import React from 'react';
 import SimpleBarReact, { Props } from 'simplebar-react';
 // material
-import {
-  alpha,
-  styled
-} from '@material-ui/core/styles';
-import {
-  Box,
-  BoxProps
-} from '@material-ui/core';
+import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
+import { Box, BoxProps } from '@material-ui/core';
 
 const RootStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -38,12 +32,14 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
     width: 10
   },
   '& .simplebar-track.simplebar-horizontal .simplebar-scrollbar': {
-    height: 6
+    // height: 6
   },
   '& .simplebar-mask': {
     zIndex: 'inherit'
   }
 }));
+
+// ----------------------------------------------------------------------
 
 export default function Scrollbar({
   children,

@@ -1,4 +1,3 @@
-// import login normalize publish log
 import React, { FC, Suspense } from "react";
 import {
   Route,
@@ -6,9 +5,10 @@ import {
   RouteProps 
 } from "react-router";
 import Loading from '@components/Loading/Loading';
-// import NotFound from '@pages/NotFound/NotFound';
 const NotFound = React.lazy(() => import("@pages/NotFound/NotFound"));
 const Home = React.lazy(() => import("@pages/Home/Home")); // 异步加载组件
+const Import = React.lazy(() => import("@pages/Import"));
+const Logs = React.lazy(() => import("@pages/Logs"));
 // const Login = React.lazy(() => import("@pages/Login/Login"));
 // const QuesBank = React.lazy(() => import("@pages/QuesBank/QuesBank"));
 // const QuesInfo = React.lazy(() => import("@pages/QuesInfo/quesInfo"));
@@ -33,30 +33,15 @@ export const routes: RouteProps[] = [
     component: Home,
   },
   {
-    path: "/login",
-    exact: true,
-    // component: Login,
-  },
-  {
     path: "/import",
     exact: true,
-    // component: QuesBank,
+    component: Import,
   },
   {
-    path: "/normalize",
+    path: "/logs",
     exact: true,
-    // component: QuesInfo,
+    component: Logs,
   },
-  {
-    path: "/publish",
-    exact: true,
-    // component: InterViewExper,
-  },
-  {
-    path: "/log",
-    exact: true,
-    // component: InterviewExperInfo,
-  }
 ];
 
 // 定义路由组件

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-25 11:22:45
+ * @LastEditTime: 2021-08-25 14:21:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /webpack_demo/apps/project/src/components/Table/SortingSelectingToolbar.tsx
+ */
 import React from 'react';
 import { Icon } from '@iconify/react';
 import trash2Fill from '@iconify/icons-eva/trash-2-fill';

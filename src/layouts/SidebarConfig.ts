@@ -4,7 +4,7 @@ const sidebarConfig = [
     items: [
       {
         title: '列表',
-        href: '',
+        href: '/import',
         icon: ''
       }
     ]
@@ -14,7 +14,7 @@ const sidebarConfig = [
     items: [
       {
         title: '列表',
-        href: '',
+        href: '/normalize',
         icon: '',
         items: [
           {
@@ -38,7 +38,7 @@ const sidebarConfig = [
     items: [
       {
         title: '列表',
-        href: '',
+        href: '/publish',
         icon: ''
       }
     ]
@@ -48,7 +48,7 @@ const sidebarConfig = [
     items: [
       {
         title: '列表',
-        href: '',
+        href: '/logs',
         icon: ''
       }
     ]

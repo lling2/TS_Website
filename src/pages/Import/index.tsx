@@ -1,9 +1,9 @@
 import React, {FC} from 'react'
-// import Step from '@components/Step'
 import Table from '@components/Table'
+import Step from '@components/Step'
 
 const Import:FC<{}> = () => {
-  return <Table></Table>
+  return <Step/>
 }
 
 export default Import;

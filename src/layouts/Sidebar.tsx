@@ -16,7 +16,7 @@ import MenuLinks from './SidebarConfig';
 import typography from '../theme/typography';
 import SidebarItem from './SidebarItem';
 
-const DRAWER_WIDTH = 100;
+const DRAWER_WIDTH = 260;
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
@@ -137,7 +137,6 @@ export default function Sidebar({
       <AccountStyle>
         <Avatar
           alt="My Avatar"
-        // src="/static/mock-images/avatars/avatar_default.jpg"
         />
         <Box sx={{ ml: 2 }}>
           <Typography
@@ -188,10 +187,13 @@ export default function Sidebar({
     <RootStyle>
       <Hidden mdUp>
         <Drawer
+          style={{ width: 260 }}
           open={isOpenSidebar}
           onClose={onCloseSidebar}
           PaperProps={{
-            // sx: { width: DRAWER_WIDTH }
+            sx: {
+              width: DRAWER_WIDTH
+            }
           }}
         >
           {renderContent}
@@ -200,10 +202,11 @@ export default function Sidebar({
       <Hidden mdDown>
         <Drawer
           open={true}
+          style={{ width: 260 }}
           variant="persistent"
-          // PaperProps={{
-          //   sx: { width: DRAWER_WIDTH, bgcolor: 'background.default' }
-          // }}
+          PaperProps={{
+            sx: { width: DRAWER_WIDTH, bgcolor: 'background.default' }
+          }}
         >
           {renderContent}
         </Drawer>

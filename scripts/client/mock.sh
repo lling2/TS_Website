@@ -1,0 +1,1 @@
+json-server --watch ./mocks/table.json

@@ -1,12 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2021-08-23 15:09:08
- * @LastEditTime: 2021-08-24 19:12:18
+ * @LastEditTime: 2021-08-25 11:37:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/layouts/a.tsx
  */
 import React, {ReactNode} from 'react';
+import {
+  NavLink,
+  useLocation,
+  useHistory,
+  Router
+} from "react-router-dom";
 import { NavLink as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -69,9 +75,17 @@ export default function SidebarItem({
       // component={RouterLink}
       activeClassName="isActive"
     >
-      <ListItemText disableTypography>
+      {/* <ListItemText disableTypography>
         {title}
-      </ListItemText>
+      </ListItemText> */}
+      <NavLink
+        className="nav-item"
+        activeClassName="nav-item_act"
+        to={href}
+        key={href}
+      >
+        {title}
+      </NavLink>
       {info && info}
     </ListItemStyle>
   );
