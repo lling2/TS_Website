@@ -382,8 +382,8 @@
 
 "@iconify/icons-ic@^1.1.9":
   version "1.1.9"
-  resolved "https://registry.nlark.com/@iconify/icons-ic/download/@iconify/icons-ic-1.1.9.tgz#dddfc9a50bf266105ec1d5b5ec73ecfcad5ac3d1"
-  integrity sha1-3d/JpQvyZhBewdW17HPs/K1aw9E=
+  resolved "https://registry.yarnpkg.com/@iconify/icons-ic/-/icons-ic-1.1.9.tgz#dddfc9a50bf266105ec1d5b5ec73ecfcad5ac3d1"
+  integrity sha512-nuFTK+nqHpEyzICkNiqqCrDjunVqbO7ptgqznXRwi+i1H8FsxIyVGJUkLjL+/f4pKQHY5Zpvzq4PH1cLUctyJQ==
 
 "@iconify/react@^3.0.1":
   version "3.0.1"
