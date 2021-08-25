@@ -1,6 +1,14 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-23 11:16:51
+ * @LastEditTime: 2021-08-25 16:44:29
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /webpack_demo/apps/project/src/utils/request/http.tsx
+ */
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { LoginInfo } from "@models/loginInfo";
-import { storage } from "@utils/index";
+import { localStorage } from "@utils/index";
 import qs from 'qs';
 import {
   addPending,
@@ -16,7 +24,7 @@ const rq = axios.create({
 rq.interceptors.request.use((config: AxiosRequestConfig) => {
   let userInfo: Partial<LoginInfo> = {};
   try {
-    userInfo = storage.get("userInfo");
+    userInfo = localStorage.storage.get("userInfo");
   } catch(error) {
     userInfo={}
     throw error;
