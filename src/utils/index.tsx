@@ -11,7 +11,6 @@ import * as http from "./request/http"
 import * as addPending from "./request/cancel"
 import * as constants from "./constants"
 import * as formatFontSize from "./formatFontSize"
-import * as tools from "./tools"
 
 export {
   localStorage,
@@ -19,6 +18,5 @@ export {
   addPending,
   constants,
   // remToPx, pxToRem
-  formatFontSize,
-  tools
+  formatFontSize
 }

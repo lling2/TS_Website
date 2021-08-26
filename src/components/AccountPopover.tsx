@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-08-24 19:25:18
- * @LastEditTime: 2021-08-24 19:28:51
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /webpack_demo/apps/project/src/components/AccountPopover.tsx
- */
 import { Icon } from '@iconify/react';
 import { useRef, useState } from 'react';
 // import NextLink from 'next/link';
@@ -22,8 +14,8 @@ import {
   MenuItem,
   Typography
 } from '@material-ui/core';
-import {MIconButton} from '../../components/@material-extend';
-import MenuPopover from '../../components/MenuPopover';
+import {MIconButton} from '@components/@material-extend';
+import MenuPopover from '@components/MenuPopover';
 
 const MENU_OPTIONS = [
   {

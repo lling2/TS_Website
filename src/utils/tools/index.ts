@@ -6,9 +6,9 @@
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/src/utils/tools/index.ts
  */
-export function formatDateTime (expireTime: number): number {
-    const thisTime = expireTime.toString().replace(/-/g, '/')
-    let time = new Date(thisTime)
-    let data = time.getTime()
-    return data
-}
+// export function formatDateTime (expireTime: string): number {
+//     const thisTime = expireTime.replace(/-/g, '/')
+//     let time = new Date(thisTime)
+//     let data = time.getTime()
+//     return data
+// }
