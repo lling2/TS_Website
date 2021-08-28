@@ -11,8 +11,10 @@ function getFullName(params: GridValueGetterParams) {
   // return `${params.getValue(params.content, 'content') || ''} ${
   //   params.getValue(params.content, 'content') || ''
   // }`;
+  // getValue: (id: GridRowId, field: string) => GridCellValue;
   const content = (params.value as string)
   return content
+  // return <span>{content}</span>
 }
 
 const columns = [
@@ -22,7 +24,7 @@ const columns = [
     width: 300,
     align: 'center',
     headerAlign: 'center',
-    valueGetter: getFullName,
+    // valueGetter: getFullName,
   },
   {
     field: 'actionType',
@@ -30,23 +32,24 @@ const columns = [
     width: 300,
     align: 'center',
     headerAlign: 'center',
+    valueGetter: getFullName,
     // valueFormatter: (params: GridValueFormatterParams) => {
     //   const actionType = params.value;
     //   return (
     //     <Label>{actionType}</Label>
     //   )
     // },
-    valueGetter: (params: GridValueFormatterParams) => {
-      const actionType = (params.value as string)
-      // const content = (params.value as string)
-    return <span color='success'>{actionType}</span>
-      // return <Label
-      //   variant='ghost'
-      //   color='success'
-      //   >
-      //   Free
-      // </Label>
-    },
+    // valueGetter: (params: GridValueFormatterParams) => {
+    //   const data = (params.value as string)
+    //   // const content = (params.value as string)
+    //   return <span>{data}</span>
+    //   // return <Label
+    //   //   variant='ghost'
+    //   //   color='success'
+    //   //   >
+    //   //   Free
+    //   // </Label>
+    // },
     // Label
   },
   {
