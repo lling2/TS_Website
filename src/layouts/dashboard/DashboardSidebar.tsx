@@ -1,4 +1,6 @@
-import React, { ReactNode, useEffect } from 'react';
+import React,{ ReactNode, useEffect } from 'react';
+// import NextLink from 'next/link';
+// import { useRouter } from 'next/router';
 import { styled } from '@material-ui/core/styles';
 import {
   Box,
@@ -10,34 +12,31 @@ import {
   Typography,
   ListSubheader
 } from '@material-ui/core';
-import Logo from '@components/Logo';
-import Scrollbar from '@components/Scrollbar';
-import MenuLinks from './sidebarConfig';
-import typography from '../theme/typography';
-import SidebarItem from './sidebarItem';
+import Logo from '../../components/Logo';
+import Scrollbar from '../../components/Scrollbar';
+import MenuLinks from './SidebarConfig';
+import SidebarItem from './SidebarItem';
 
-const DRAWER_WIDTH = 260;
+const DRAWER_WIDTH = 280;
 
 const RootStyle = styled('div')(({ theme }) => ({
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     flexShrink: 0,
-    width: DRAWER_WIDTH,
-    margin: theme.spacing(20, 0, 0),
+    // width: DRAWER_WIDTH,
+    width: '280px'
   }
 }));
 
 const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(2, 2.5),
-  margin: theme.spacing(4, 2.5, 5),
-  borderRadius: '4px',
-  backgroundColor: '#eee'
+  padding: theme.spacing(2, 2.5) || '20px',
+  margin: theme.spacing(1, 2.5, 5),
+  color: '#212B36',
+  // backgroundColor: '#eee',
+  borderRadius: theme.shape.borderRadiusSm || '4px',
+  backgroundColor: theme.palette.grey[500_12] || '#eee'
 }));
-
-const ListItemStyle = styled(Box)(({ theme }) => ({
-  ...typography.subtitle1
-}))
 
 type TNavItem = {
   icon?: ReactNode;
@@ -58,7 +57,6 @@ function reduceChild({ array, item, pathname, level }: ReduceChildParams) {
   const key = item.href + level;
   if (item.items) {
     const match = pathname.includes(item.href);
-
     return [
       ...array,
       <SidebarItem
@@ -117,66 +115,72 @@ type NavBarProps = {
   onCloseSidebar?: VoidFunction;
 };
 
-export default function Sidebar({
+export default function DashboardSidebar({
   isOpenSidebar,
   onCloseSidebar
 }: NavBarProps) {
-  const pathname = '';
+  // const router = useRouter();
+  // const pathname = router.pathname;
 
   useEffect(() => {
     if (isOpenSidebar && onCloseSidebar) {
       onCloseSidebar();
     }
-  }, [pathname]);
+  }, []);
 
   const renderContent = (
-    <Scrollbar>
+    <Scrollbar style={{width: '280px'}}>
       <Box sx={{ px: 2.5, py: 3 }}>
-        <Logo />
+        {/* <NextLink href="/" passHref> */}
+          <Logo />
+        {/* </NextLink> */}
       </Box>
-      <AccountStyle>
-        <Avatar
-          alt="My Avatar"
-        />
-        <Box sx={{ ml: 2 }}>
-          <Typography
-            variant="subtitle2">
-            displayName
-          </Typography>
-          <Typography
-            variant="body2"
-          >
-            Admin
-          </Typography>
-        </Box>
-      </AccountStyle>
+      {/* <NextLink href="#" passHref> */}
+        <Link underline="none">
+          <AccountStyle>
+            <Avatar
+              alt="My Avatar"
+              src="/static/mock-images/avatars/avatar_default.jpg"
+            />
+            <Box sx={{ ml: 2 }}>
+              {/* <Typography variant="subtitle2" sx={{ color: 'text.primary' }}> */}
+              <Typography variant="subtitle2">
+                displayName
+              </Typography>
+              {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}> */}
+              <Typography variant="body2">
+                role
+              </Typography>
+            </Box>
+          </AccountStyle>
+        </Link>
+      {/* </NextLink> */}
 
       {MenuLinks.map((list) => (
         <List
           disablePadding
           key={list.subheader}
-          subheader={
-            <ListItemStyle
-              // disableSticky
-              // disableGutters
-              style={{
-                ...typography.subtitle1
-              }}
-              sx={{
-                mt: 3,
-                mb: 2,
-                pl: 5,
-                color: 'text.primary',
-                // typography: 'overline'
-              }}
-            >
-              {list.subheader}
-            </ListItemStyle>
-          }
+          // subheader=
+          // subheader={
+          //   <ListSubheader
+          //     disableSticky
+          //     disableGutters
+          //     // sx={{
+          //     //   mt: 3,
+          //     //   mb: 2,
+          //     //   pl: 5,
+          //     //   color: 'text.primary',
+          //     //   typography: 'overline'
+          //     // }}
+          //     style={{padding: '0px 20px'}}
+            // >
+              /* {list.subheader} */
+            /* </ListSubheader> */
+          // }
         >
           {renderSidebarItems({
             items: list.items,
-            pathname
+            pathname: '/'
           })}
         </List>
       ))}
@@ -185,28 +189,28 @@ export default function Sidebar({
 
   return (
     <RootStyle>
-      <Hidden mdUp>
+      <Hidden lgUp>
         <Drawer
-          style={{ width: 260 }}
+          style={{width: '280px'}}
           open={isOpenSidebar}
           onClose={onCloseSidebar}
-          PaperProps={{
-            sx: {
-              width: DRAWER_WIDTH
-            }
-          }}
+          // PaperProps={{
+          //   sx: { width: DRAWER_WIDTH }
+          // }}
         >
           {renderContent}
         </Drawer>
       </Hidden>
       <Hidden mdDown>
         <Drawer
-          open={true}
-          style={{ width: 260 }}
+          open
           variant="persistent"
-          PaperProps={{
-            sx: { width: DRAWER_WIDTH, bgcolor: 'background.default' }
+          style={{
+            width: '280px'
           }}
+          // PaperProps={{
+          //   sx: { width: DRAWER_WIDTH, bgcolor: 'background.default' }
+          // }}
         >
           {renderContent}
         </Drawer>

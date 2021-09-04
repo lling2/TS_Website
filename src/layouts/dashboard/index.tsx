@@ -1,21 +1,19 @@
-import React, {
-  ReactNode,
-  useState
+import React,{ 
+  ReactNode, 
+  useState 
 } from 'react';
 import { styled } from '@material-ui/core/styles';
-import {
-  Box
-} from '@material-ui/core';
-import Sidebar from './Sidebar';
-import Navbar from './navbar';
-import Settings from '../components/settings/index'
-
-type DocsLayoutProps = {
-  children: ReactNode;
-};
+import DashboardNavbar from './DashboardNavbar';
+import DashboardSidebar from './DashboardSidebar';
 
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
+
+const RootStyle = styled('div')(({ theme }) => ({
+  display: 'flex',
+  minHeight: '100%',
+  overflow: 'hidden'
+}));
 
 const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -23,29 +21,31 @@ const MainStyle = styled('div')(({ theme }) => ({
   minHeight: '100%',
   paddingTop: APP_BAR_MOBILE + 24,
   paddingBottom: theme.spacing(10),
-  // backgroundColor: theme.palette.background.default,
-  [theme.breakpoints.up('md')]: {
+  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up('lg')]: {
     paddingTop: APP_BAR_DESKTOP + 24,
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2)
   }
 }));
-export default function Layout({ children }: DocsLayoutProps) {
+
+type DashboardLayoutProps = {
+  children?: ReactNode;
+};
+
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100%', overflow: 'hidden' }}>
-      <Navbar
-        onOpenSidebar={() => setOpen(true)}
-      />
-      <Sidebar
+    <RootStyle>
+      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
+      <DashboardSidebar
         isOpenSidebar={open}
         onCloseSidebar={() => setOpen(false)}
       />
       <MainStyle>
-        <Settings />
         {children}
       </MainStyle>
-    </Box>
+    </RootStyle>
   );
 }

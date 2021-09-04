@@ -1,13 +1,16 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
-import { useRef, useState } from 'react';
+import { 
+    useRef, 
+    useState 
+} from 'react';
 // import NextLink from 'next/link';
 import homeFill from '@iconify/icons-eva/home-fill';
 import personFill from '@iconify/icons-eva/person-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
-// material
 import { alpha } from '@material-ui/core/styles';
 import {
+    Link,
   Box,
   Avatar,
   Button,
@@ -15,8 +18,10 @@ import {
   MenuItem,
   Typography
 } from '@material-ui/core';
-import {MIconButton} from '@components/@material-extend';
-import MenuPopover from '@components/MenuPopover';
+import { MIconButton } from '../../components/@material-extend';
+import MenuPopover from '../../components/MenuPopover';
+// import { MIconButton } from '../../components/@material-extend';
+// import MenuPopover from '../../components/MenuPopover';
 
 const MENU_OPTIONS = [
   {
@@ -80,21 +85,20 @@ export default function AccountPopover() {
         open={open}
         onClose={handleClose}
         anchorEl={anchorRef.current}
-        sx={{ width: 220 }}
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
             displayName
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
+          <Typography variant="body2" noWrap>
             email
           </Typography>
         </Box>
 
-        <Divider sx={{ my: 1 }} />
+        <Divider />
 
         {MENU_OPTIONS.map((option) => (
-          <NextLink key={option.label} href={option.linkTo}>
+          <Link key={option.label} href={option.linkTo}>
             <MenuItem
               onClick={handleClose}
               sx={{ typography: 'body2', py: 1, px: 2.5 }}
@@ -111,7 +115,7 @@ export default function AccountPopover() {
 
               {option.label}
             </MenuItem>
-          </NextLink>
+          </Link>
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>

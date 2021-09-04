@@ -4,7 +4,7 @@ import {
   Switch,
   RouteProps 
 } from "react-router";
-import Loading from '@components/Loading/Loading';
+import Loading from '@components/Loading';
 const NotFound = React.lazy(() => import("@pages/NotFound/NotFound"));
 const Home = React.lazy(() => import("@pages/Home/Home")); // 异步加载组件
 const Import = React.lazy(() => import("@pages/Import"));
