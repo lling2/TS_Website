@@ -1,106 +1,111 @@
-import React, { useState } from 'react';
+import React, { 
+    useState, 
+    ReactNode,
+    FC, 
+    memo
+} from 'react';
 import {
-    Box,
-    Step,
-    Paper,
-    Button,
-    Stepper,
-    StepLabel,
-    Typography
+  Box,
+  Step,
+  Paper,
+  Button,
+  Stepper,
+  StepLabel,
+  Typography
 } from '@material-ui/core';
+import { JsxElement } from 'typescript';
 
 const steps = [
-    '选择数据集',
-    '选择数据源',
-    '展示数据'
+  'Select campaign settings',
+  'Create an ad group',
+  'Create an ad'
 ];
+interface StepProps {
+    stepsTitleArr: string[],
+    renderContent: (data: number) => React.ReactElement | HTMLElement,
+    handleIsNextStep: (data: number) => boolean
+};
 
-export default function HorizontalLinearStepper() {
-    const [activeStep, setActiveStep] = useState(0);
-    const [skipped, setSkipped] = useState(new Set<number>());
+const LinearAlternativeLabel: FC<StepProps> = ({
+    renderContent,
+    stepsTitleArr=steps,
+    handleIsNextStep
+}: StepProps) => {
+  const [activeStep, setActiveStep] = useState(0);
 
-    const isStepSkipped = (step: number) => skipped.has(step);
+  const isStepOptional = (step: number) => step === 1;
 
-    const handleNext = () => {
-        let newSkipped = skipped;
-        if (isStepSkipped(activeStep)) {
-            newSkipped = new Set(newSkipped.values());
-            newSkipped.delete(activeStep);
-        }
+  const handleNext = () => {
+    console.log(activeStep, 'activeStep')
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    handleIsNextStep(activeStep);
+  };
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
-    };
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+  const handleReset = () => {
+    setActiveStep(0);
+  };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
+  return (
+    <>
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {stepsTitleArr.map((label, index) => {
+          const stepProps: { completed?: boolean } = {};
+          const labelProps: {
+            optional?: React.ReactNode;
+          } = {};
 
-    return (
+          return (
+            <Step 
+                key={label} 
+                {...stepProps}
+            >
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+      {activeStep === stepsTitleArr.length ? (
         <>
-            <Stepper activeStep={activeStep}>
-                {steps.map((label, index) => {
-                    const stepProps: { completed?: boolean } = {};
-                    const labelProps: {
-                        optional?: React.ReactNode;
-                    } = {};
-                    //   if (isStepOptional(index)) {
-                    //     labelProps.optional = (
-                    //       <Typography variant="caption">Optional</Typography>
-                    //     );
-                    //   }
-                    if (isStepSkipped(index)) {
-                        stepProps.completed = false;
-                    }
-                    return (
-                        <Step key={label} {...stepProps}>
-                            <StepLabel {...labelProps}>{label}</StepLabel>
-                        </Step>
-                    );
-                })}
-            </Stepper>
-            {activeStep === steps.length ? (
-                <>
-                    <Paper sx={{ p: 3, my: 3, minHeight: 120, bgcolor: 'grey.50012' }}>
-                        <Typography sx={{ my: 1 }}>
-                            All steps completed - you&apos;re finished
-                        </Typography>
-                    </Paper>
+          <Box sx={{ p: 3, my: 3, minHeight: 120, bgcolor: '#fff' }} style={{margin: '0 auto', width: '80%'}}>
+            {renderContent(activeStep)}
+          </Box>
 
-                    <Box sx={{ display: 'flex' }}>
-                        <Box sx={{ flexGrow: 1 }} />
-                        <Button onClick={handleReset}>上一步</Button>
-                    </Box>
-                </>
-            ) : (
-                <>
-                    <Paper
-                        sx={{ p: 3, my: 3, minHeight: 120, bgcolor: 'grey.50012' }}
-                    >
-                        <Typography sx={{ my: 1 }}>
-                            Step {activeStep + 1}
-                        </Typography>
-                    </Paper>
-                    <Box sx={{ display: 'flex' }}>
-                        <Box sx={{ flexGrow: 1 }} />
-                        <Button
-                            color="inherit"
-                            disabled={activeStep === 0}
-                            onClick={handleBack}
-                            sx={{ mr: 1 }}
-                        >
-                            上一步
-                        </Button>
-                        <Button variant="contained" onClick={handleNext}>
-                            {activeStep === steps.length - 1 ? '完成' : '下一步'}
-                        </Button>
-                    </Box>
-                </>
-            )}
+          <Box sx={{ display: 'flex' }}>
+            <Box sx={{ flexGrow: 1 }} />
+            <Button onClick={handleReset}>上一步</Button>
+          </Box>
         </>
-    );
+      ) : (
+        <>
+          <Box sx={{ p: 3, my: 3, minHeight: 100, bgcolor: '#fff' }}>
+            <Box style={{margin: '0 auto', width: '80%'}}>
+                {renderContent(activeStep)}
+            </Box>
+          </Box>
+          <Box sx={{ display: 'flex' }}>
+            <Box sx={{ flexGrow: 1 }} />
+            <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+            >
+                上一步
+            </Button>
+            <Button 
+                variant="contained" 
+                onClick={handleNext}
+            >
+            {activeStep === stepsTitleArr.length - 1 ? '完成' : '下一步'}
+            </Button>
+        </Box>
+        </>
+      )}
+    </>
+  );
 }
+
+export default memo(LinearAlternativeLabel)

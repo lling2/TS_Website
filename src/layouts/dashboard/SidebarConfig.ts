@@ -1,68 +1,58 @@
-import SvgIconStyle from '../../components/SvgIconStyle';
-
-// const getIcon = (name: string) => (
-//   <SvgIconStyle
-//     src={`/static/icons/navbar/${name}.svg`}
-//     // sx={{ width: 22, height: 22 }}
-//   />
-// );
-
-const ICONS = {
-  // page: getIcon('ic_page'),
-  // dashboard: getIcon('ic_dashboard')
-};
-
 const sidebarConfig = [
   {
-    subheader: 'general',
+    subheader: 'yuri-bunker',
     items: [
       {
-        title: 'Page One',
-        href: '/',
-        // href: PATH_DASHBOARD.general.pageOne,
-        icon: ICONS.page
-      },
-      {
-        title: 'Page Two',
-        // href: PATH_DASHBOARD.general.pageTwo,
-        href: '/',
-        icon: ICONS.page
-      },
-      {
-        title: 'Page Three',
-        // href: PATH_DASHBOARD.general.pageThree,
-        href: '/',
-        icon: ICONS.page
-      }
-    ]
-  },
-
-  // APP
-  // ----------------------------------------------------------------------
-  {
-    subheader: 'app',
-    items: [
-      {
-        title: 'Drop',
-        // href: PATH_DASHBOARD.app.root,
-        href: '/',
-        // icon: ICONS.dashboard,
+        title: '导入',
+        href: '/import',
         icon: '',
         items: [
           {
-            title: 'page Four',
+            title: '列表',
             // href: PATH_DASHBOARD.app.pageFour
-            href: '/',
-          },
+            href: '/import/list',
+          }
+        ]
+      },
+      {
+        title: '分析',
+        href: '/normalize',
+        // href: PATH_DASHBOARD.general.pageOne,
+        // icon: ICONS.page
+        icon: '',
+        items: [
           {
-            title: 'Page Five',
-            // href: PATH_DASHBOARD.app.pageFive
-            href: '/',
-          },
+            title: '列表',
+            // href: PATH_DASHBOARD.app.pageFour
+            href: '/normalize/list',
+          }
+        ]
+      },
+      {
+        title: '发布',
+        href: '/publish',
+        // href: PATH_DASHBOARD.general.pageOne,
+        // icon: ICONS.page
+        icon: '',
+        items: [
           {
-            title: 'Page Six',
-            // href: PATH_DASHBOARD.app.pageSix
-            href: '/',
+            title: '列表',
+            // href: PATH_DASHBOARD.app.pageFour
+            href: '/publish/list',
+          }
+        ]
+      },
+      {
+        title: '日志',
+        href: '/logs',
+        // href: PATH_DASHBOARD.general.pageOne,
+        // icon: ICONS.page
+        icon: '',
+        items: [
+          {
+            title: '列表',
+            // href: PATH_DASHBOARD.app.pageFour
+            href: '/logs/list',
           }
         ]
       }
@@ -71,3 +61,62 @@ const sidebarConfig = [
 ];
 
 export default sidebarConfig;
+
+// const sidebarConfig = [
+//   {
+//     subheader: '导入',
+//     items: [
+//       {
+//         title: '列表',
+//         href: '/import',
+//         icon: ''
+//       }
+//     ]
+//   },
+//   {
+//     subheader: '分析',
+//     items: [
+//       {
+//         title: '列表',
+//         href: '/normalize',
+//         icon: '',
+//         items: [
+//           {
+//             title: 'page Four',
+//             href: '',
+//           },
+//           {
+//             title: 'Page Five',
+//             href: '',
+//           },
+//           {
+//             title: 'Page Six',
+//             href: '',
+//           }
+//         ]
+//       }
+//     ]
+//   },
+//   {
+//     subheader: '发布',
+//     items: [
+//       {
+//         title: '列表',
+//         href: '/publish',
+//         icon: ''
+//       }
+//     ]
+//   },
+//   {
+//     subheader: '日志',
+//     items: [
+//       {
+//         title: '列表',
+//         href: '/logs',
+//         icon: ''
+//       }
+//     ]
+//   },
+// ];
+
+// export default sidebarConfig;

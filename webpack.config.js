@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-19 23:29:54
- * @LastEditTime: 2021-09-02 13:53:44
+ * @LastEditTime: 2021-09-04 19:40:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack_demo/apps/project/webpack.config.ts
@@ -13,6 +13,7 @@ const {
 const merge = require('webpack-merge');
 // 获取命令行的参数
 const argv = require('yargs-parser')(process.argv.slice(2));
+console.log(process, 'process.argv')
 const _mode = argv.mode || 'development';
 const _flagmode = _mode === 'production';
 // 其他环境的模版

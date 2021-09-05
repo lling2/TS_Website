@@ -2,7 +2,7 @@ import React from 'react';
 import faker from 'faker';
 import { noCase } from 'change-case';
 import { useRef, useState } from 'react';
-import NextLink from 'next/link';
+// import NextLink from 'next/link';
 import { set, sub, formatDistanceToNow } from 'date-fns';
 import { Icon } from '@iconify/react';
 import bellFill from '@iconify/icons-eva/bell-fill';

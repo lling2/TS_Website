@@ -161,22 +161,22 @@ export default function DashboardSidebar({
           disablePadding
           key={list.subheader}
           // subheader=
-          // subheader={
-          //   <ListSubheader
-          //     disableSticky
-          //     disableGutters
-          //     // sx={{
-          //     //   mt: 3,
-          //     //   mb: 2,
-          //     //   pl: 5,
-          //     //   color: 'text.primary',
-          //     //   typography: 'overline'
-          //     // }}
-          //     style={{padding: '0px 20px'}}
-            // >
-              /* {list.subheader} */
-            /* </ListSubheader> */
-          // }
+          subheader={
+            <Box
+              disableSticky
+              disableGutters
+              sx={{
+                mt: 3,
+                mb: 2,
+                pl: 5,
+                color: 'text.primary',
+                typography: 'overline'
+              }}
+              style={{padding: '0px 20px'}}
+            >
+              {list.subheader}
+          </Box>
+          }
         >
           {renderSidebarItems({
             items: list.items,

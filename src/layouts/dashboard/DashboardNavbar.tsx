@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-31 14:22:49
- * @LastEditTime: 2021-09-04 12:40:45
+ * @LastEditTime: 2021-09-04 14:18:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vision/apps/yuri-core/src/layouts/dashboard/DashboardNavbar.tsx
@@ -33,6 +33,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
+  // backgroundColor: '#eee',
   backgroundColor: theme.palette.background.paper,
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${DRAWER_WIDTH + 1}px)`

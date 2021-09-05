@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-08-17 13:53:41
- * @LastEditTime: 2021-09-04 13:34:02
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /vision/apps/yuri-core/src/layouts/dashboard/LanguagePopover.tsx
- */
 import React, { useRef, useState } from 'react';
 import { 
   Box, 
